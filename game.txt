@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.util.Random;
+ class game{
+    int number;
+    int guess;
+    int input;
+
+ public void setguess(int x){
+       this.guess=x;
+   }
+   
+ public int  getguess(int x){
+    return guess;
+  }
+    game(){
+    Random r=new Random();
+    this.number=r.nextInt(100);
+  }
+void takeuserinput(){
+    System.out.println("Guess the Number:");
+    Scanner sc= new Scanner(System.in);
+   input= sc.nextInt();
+}
+boolean istrue(){
+    guess++;
+    if(input==number){
+        System.out.println("Congratulation You are Right");
+        return true;
+    }
+    else if(input<number){
+        System.out.println("its Too Tow...");
+        System.out.println("--------------------");
+
+    }
+    else if(input>number){
+        System.out.println("its Too High...");
+        System.out.println("--------------------");
+    }
+    return false;
+    }
+ }
+public class guessingnumber {
+
+    public static void main(String[] args) {
+        boolean b=false;
+        game g=new game();
+        while(!b){
+       g.takeuserinput();
+       b = g.istrue();
+        }
+    }
+}
